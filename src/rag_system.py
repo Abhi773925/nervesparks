@@ -3,15 +3,12 @@ from chromadb.utils import embedding_functions
 from chromadb.config import Settings
 from utils import detect_language, translate_text
 
-# Initialize ChromaDB with specific settings
 import chromadb
 from chromadb.utils import embedding_functions
 from utils import detect_language, translate_text
 
-# Initialize the client using the new configuration format
 client = chromadb.EphemeralClient()
-# If the above doesn't work, try this alternative:
-# client = chromadb.EphemeralClient()
+
 
 embedder = embedding_functions.SentenceTransformerEmbeddingFunction(
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"

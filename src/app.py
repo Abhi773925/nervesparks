@@ -18,7 +18,7 @@ if uploaded_file:
             content = uploaded_file.read().decode('utf-8', errors='ignore')
         
         add_document(collection, content)
-        st.success("Document added Successfully!")
+        st.success("Document added !")
     except Exception as e:
         st.error(f"Error: {str(e)}")
 
