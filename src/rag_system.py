@@ -4,21 +4,24 @@ from chromadb.config import Settings
 from utils import detect_language, translate_text
 
 # Initialize ChromaDB with specific settings
-import chromadb
-from chromadb.utils import embedding_functions
-from chromadb.config import Settings
 import os
+import chromadb
+from chromadb.config import Settings
+from chromadb.utils import embedding_functions
 from utils import detect_language, translate_text
 
-# Configure ChromaDB to use a specific directory and settings
-chroma_settings = Settings(
-    chroma_db_impl="duckdb+parquet",
-    persist_directory=os.path.join(os.path.dirname(__file__), "..", "chroma_db"),
+# Get the absolute path to the chroma_db directory
+persist_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "chroma_db"))
+
+# Configure ChromaDB settings
+settings = Settings(
+    persist_directory=persist_directory,
+    is_persistent=True,
     anonymized_telemetry=False
 )
 
-# Initialize the client with the settings
-client = chromadb.Client(chroma_settings)
+# Initialize the persistent client
+client = chromadb.PersistentClient(path=persist_directory, settings=settings)
 # If the above doesn't work, try this alternative:
 # client = chromadb.EphemeralClient()
 
