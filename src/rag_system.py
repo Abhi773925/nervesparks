@@ -3,7 +3,10 @@ from chromadb.utils import embedding_functions
 from chromadb.config import Settings
 from utils import detect_language, translate_text
 
-client = chromadb.Client(path="./chroma_db")
+# Initialize ChromaDB with specific settings
+client = chromadb.HttpClient(host="localhost", port=8000)  # For local HTTP server
+# If the above doesn't work, try this alternative:
+# client = chromadb.EphemeralClient()
 
 embedder = embedding_functions.SentenceTransformerEmbeddingFunction(
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
