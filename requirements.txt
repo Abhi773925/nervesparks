@@ -3,9 +3,7 @@ chromadb==0.4.12
 sentence-transformers==2.2.2
 langdetect==1.0.9
 transformers==4.33.1
-torch==2.6.0
-torchvision==0.21.0
+torch==2.5.1
 PyPDF2==3.0.1
-typing-extensions>=4.10.0
+typing-extensions==4.7.1
 SQLAlchemy==2.0.20
-pillow<10,>=7.1.0
