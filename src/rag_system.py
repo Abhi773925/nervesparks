@@ -6,15 +6,10 @@ from utils import detect_language, translate_text
 # Initialize ChromaDB with specific settings
 import chromadb
 from chromadb.utils import embedding_functions
-from chromadb.config import Settings
 from utils import detect_language, translate_text
 
-# Initialize the client in memory mode for Streamlit Cloud compatibility
-client = chromadb.Client(Settings(
-    chroma_db_impl="duckdb+parquet",
-    persist_directory=":memory:",  # Use in-memory storage
-    anonymized_telemetry=False
-))
+# Initialize the client using the new configuration format
+client = chromadb.EphemeralClient()
 # If the above doesn't work, try this alternative:
 # client = chromadb.EphemeralClient()
 
