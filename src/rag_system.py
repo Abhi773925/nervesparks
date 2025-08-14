@@ -4,7 +4,21 @@ from chromadb.config import Settings
 from utils import detect_language, translate_text
 
 # Initialize ChromaDB with specific settings
-client = chromadb.HttpClient(host="localhost", port=8000)  # For local HTTP server
+import chromadb
+from chromadb.utils import embedding_functions
+from chromadb.config import Settings
+import os
+from utils import detect_language, translate_text
+
+# Configure ChromaDB to use a specific directory and settings
+chroma_settings = Settings(
+    chroma_db_impl="duckdb+parquet",
+    persist_directory=os.path.join(os.path.dirname(__file__), "..", "chroma_db"),
+    anonymized_telemetry=False
+)
+
+# Initialize the client with the settings
+client = chromadb.Client(chroma_settings)
 # If the above doesn't work, try this alternative:
 # client = chromadb.EphemeralClient()
 

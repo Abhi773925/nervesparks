@@ -1,5 +1,5 @@
 streamlit==1.38.0
-chromadb>=0.4.14
+chromadb[duckdb]>=0.4.14
 sentence-transformers>=2.2.2
 langdetect==1.0.9
 transformers>=4.36.0
@@ -10,3 +10,4 @@ typing-extensions==4.12.2
 SQLAlchemy==2.0.34
 fastapi>=0.100.0
 uvicorn>=0.22.0
+duckdb>=0.9.0
