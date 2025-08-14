@@ -1,0 +1,11 @@
+chromadb>=0.4.0
+streamlit>=1.24.0
+sentence-transformers>=2.2.2
+langdetect>=1.0.9
+transformers>=4.30.0
+torch>=2.0.0
+PyPDF2>=3.0.0
+easynmt>=2.0.2
+polyglot>=16.7.4
+python-magic>=0.4.27
+pycld2>=0.41
