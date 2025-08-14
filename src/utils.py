@@ -10,6 +10,7 @@ def detect_language(text):
         return 'en'
 
 def translate_text(text, source_lang, target_lang):
+    """Translate text from source language to target language."""
     if source_lang == target_lang:
         return text
         
